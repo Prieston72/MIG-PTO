@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS 交互演示</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo">交互演示</div>
+    <div class="nav-links">
+      <a onclick="showToast('首页')">首页</a>
+      <a onclick="showToast('关于')">关于</a>
+      <a onclick="showToast('联系')">联系</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>JavaScript 交互示例</h1>
+    <p class="subtitle">点击下面的按钮体验各种 JS 交互效果</p>
+
+    <!-- 计数器 -->
+    <div class="card">
+      <h2>计数器</h2>
+      <p>点击按钮增加或减少数值</p>
+      <div class="counter-value" id="counter">0</div>
+      <button onclick="changeCount(1)">+1</button>
+      <button onclick="changeCount(-1)">-1</button>
+      <button class="secondary" onclick="resetCount()">重置</button>
+    </div>
+
+    <!-- 深色模式 -->
+    <div class="card">
+      <div class="toggle-row">
+        <div>
+          <h2>深色模式</h2>
+          <p>切换页面明暗主题</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
+          <span class="slider-toggle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- 随机颜色 -->
+    <div class="card">
+      <h2>随机颜色</h2>
+      <p>点击按钮生成随机背景色</p>
+      <div class="color-box" id="colorBox">#0071e3</div>
+      <button onclick="randomColor()">生成颜色</button>
+    </div>
+
+    <!-- 模态框 -->
+    <div class="card">
+      <h2>模态框</h2>
+      <p>点击按钮弹出对话框</p>
+      <button onclick="openModal()">打开弹窗</button>
+    </div>
+
+    <!-- Toast 提示 -->
+    <div class="card">
+      <h2>Toast 提示</h2>
+      <p>点击按钮显示底部提示条</p>
+      <button onclick="showToast('你好，这是一条提示！')">显示 Toast</button>
+    </div>
+  </div>
+
+  <!-- 模态框 -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalBg(event)">
+    <div class="modal">
+      <h3>这是一个弹窗</h3>
+      <p>你刚刚点击了"打开弹窗"按钮。点击遮罩层或关闭按钮可以关闭它。</p>
+      <button onclick="closeModal()">关闭</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <footer>JS 交互演示页面</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
